@@ -6,9 +6,9 @@
 #  - An instance method, full_name, that puts first_name and last_name together
 #  - An instance method, age, that calculates the number of years between today and birthdate
 
-class Person
+# class Person
   
-end
+# end
 
 # Test your instance methods by adding to the end of this file:
 
@@ -24,3 +24,37 @@ end
 #  other_person.age
 # Output:
 #=>  45
+
+# CREATING THE CLASSES
+
+class Person
+
+  require ("date")
+
+  attr_accessor :first_name
+  attr_accessor :last_name
+  attr_accessor :birthdate
+
+  def full_name
+    return self.first_name + " " + self.last_name
+  end
+
+  def age
+    dob = Date.parse(self.birthdate)
+    rn = Date.today
+    age_days = rn - dob
+    age_years = age_days/365
+
+    age_years = age_years.to_i
+  end
+end
+
+  me = Person.new
+  me.first_name = "Ainsley"
+  me.last_name = "Galvez"
+  me.birthdate = "August 9, 1998"
+  me.full_name
+  me.age
+
+
+
